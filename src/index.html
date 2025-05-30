@@ -1,18 +1,39 @@
 <!doctype html>
-<html ilang="en">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
-  <title>Hello World!</title>
+  <title>Todo List</title>
   <style>
     * {
-      font-family: monospace;
+      font-family: Garamond;
+    }
+
+    body {
+      background-color: rgb(255, 124, 48);
     }
   </style>
 </head>
 
 <body>
-  <h1>todo</h1>
+  <h1>Todo List
+  </h1>
+  <form id="add_task_form">
+    <input id="add_task" name="add_task" type="text">
+    <input type="submit" value="add task">
+  </form>
+
+  <script defer>
+    const add_task_form = document.getElementById("add_task_form");
+    add_task_form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      const taskValue = formData.get("add_task");
+
+      console.log("Task:", taskValue);
+    })
+  </script>
 </body>
 
 </html>
